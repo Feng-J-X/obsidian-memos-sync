@@ -1,10 +1,10 @@
 {
   "id": "memos-ai-sync",
-  "name": "Memos AI Sync",
+  "name": "My Memos Sync",
   "version": "1.0.4",
   "minAppVersion": "1.4.0",
   "description": "Sync Memos content with AI enhancement",
   "author": "leoleelxh",
-  "authorUrl": "https://github.com/leoleelxh",
+  "authorUrl": "",
   "isDesktopOnly": false
 }
