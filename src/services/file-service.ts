@@ -24,7 +24,7 @@ export class FileService {
         const seconds = String(date.getSeconds()).padStart(2, '0');
 
         if (format === 'filename') {
-            return `${year}-${month}-${day} ${hours}-${minutes}`;
+            return `${year}-${month}-${day}`;
         }
         return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
     }
@@ -139,10 +139,10 @@ export class FileService {
             const year = date.getFullYear();
             const month = String(date.getMonth() + 1).padStart(2, '0');
             
-            const yearDir = `${this.syncDirectory}/${year}`;
-            const monthDir = `${yearDir}/${month}`;
+            //const yearDir = `${this.syncDirectory}`;
+            const monthDir = `${this.syncDirectory}`;
             
-            await this.ensureDirectoryExists(yearDir);
+            //await this.ensureDirectoryExists(yearDir);
             await this.ensureDirectoryExists(monthDir);
             
             const contentPreview = memo.content 
@@ -150,7 +150,7 @@ export class FileService {
                 : this.sanitizeFileName(memo.name.replace('memos/', ''));
             
             const timeStr = this.formatDateTime(date, 'filename');
-            const fileName = this.sanitizeFileName(`${contentPreview} (${timeStr}).md`);
+            const fileName = this.sanitizeFileName(`${timeStr}.md`);
             const filePath = `${monthDir}/${fileName}`;
             
             let content = memo.content || '';
